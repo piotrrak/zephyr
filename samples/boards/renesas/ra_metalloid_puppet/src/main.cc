@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include "zutils.hh"
+
 #include <stdio.h>
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
 
 #include <chrono>
-#include <expected>
-#include <utility>
 
 /*
  * A build error on this line means your board is unsupported.
@@ -21,22 +21,13 @@ using namespace std::literals::chrono_literals;
 
 namespace z {
 
-template <auto ZCall_> [[nodiscard]]
-std::expected<void, int> check_(auto && ...args) noexcept {
-	int ret = ZCall_(std::forward<decltype(args)>(args)...);
-
-	if (ret < 0) return std::unexpected(ret);
-
-	return {};
-}
-
 template <typename R_, typename P_>
 auto sleep_for(std::chrono::duration<R_, P_> ival) {
 	namespace t = std::chrono;
         auto in_ms = t::duration_cast<t::milliseconds>(ival);
 
         // FIXME: no clocks, we're sloooow... DIVed by fixup
-        constexpr int FUP = 100;
+        constexpr int FUP = 10;
 	return k_msleep(in_ms.count() / FUP);
 }
 
@@ -89,7 +80,6 @@ int main(void)
         // TODO: Put in thread some day
 
         for (unsigned prev_gray = 0U, gray = next_grays_for(color_leds) ;; ) {
-
                 for (unsigned i=0U; i < LED_COUNT; ++i) {
 
                     	auto ith_bit_of = [i](unsigned v) { return (v >> i) &1U; };
