@@ -1,0 +1,10 @@
+# LLVM Embedded Toolchain for Arm
+#
+# See https://github.com/ARM-software/LLVM-embedded-toolchain-for-Arm
+
+# Copyright (c) 2024 Piotr Rak
+# SPDX-License-Identifier: Apache-2.0
+
+config TOOLCHAIN_LLVMARMEMB
+	def_bool y
+	select BUILD_NO_GAP_FILL
