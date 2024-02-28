@@ -10,3 +10,8 @@ if(DEFINED triple)
   unset(triple)
 endif()
 
+list(APPEND TOOLCHAIN_C_FLAGS --sysroot "${LLVMARMEMB_TOOLCHAIN_PATH}/lib/clang-runtimes")
+set(CMAKE_EXE_LINKER_FLAGS_INIT "-lc")
+#list(APPEND TOOLCHAIN_C_FLAGS --config "${LLVMARMEMB_TOOLCHAIN_PATH}/bin/newlib.cfg")
+
+

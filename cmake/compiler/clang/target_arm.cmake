@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
+message(now)
 set(ARM_C_FLAGS)
 
 list(APPEND ARM_C_FLAGS   -mcpu=${GCC_M_CPU})

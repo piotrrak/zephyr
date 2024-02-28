@@ -7,7 +7,8 @@ zephyr_library_sources(libc-hooks.c)
 # used by the network stack
 zephyr_compile_definitions(__LINUX_ERRNO_EXTENSIONS__)
 
-if(NOT CONFIG_PICOLIBC_USE_MODULE)
+#FIXME
+if(FALSE AND (NOT CONFIG_PICOLIBC_USE_MODULE))
 
   # Use picolibc provided with the toolchain. This requires a new enough
   # toolchain so that the version of picolibc supports auto-detecting a

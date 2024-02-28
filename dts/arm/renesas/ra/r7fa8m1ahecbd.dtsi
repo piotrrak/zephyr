@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) 2024 Piotr Rak <piotr.rak@gmail.com>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#define RA_SOC_PINS 224
+
+#include <renesas/ra/ra8mxxh-common-sp-flash-2MB.dtsi>
+#include <renesas/ra/ra8-cm85-common.dtsi>
+

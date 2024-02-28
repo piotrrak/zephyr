@@ -10,8 +10,11 @@ else()
   message(FATAL_ERROR "Nothing found at LLVMARMEMB_TOOLCHAIN_PATH: '${LLVMARMEMB_TOOLCHAIN_PATH}'")
 endif()
 
-set(COMPILER clang)
+set(COMPILER armemb-clang)
 set(LINKER lld)
 set(BINTOOLS llvm)
 
-set(TOOLCHAIN_HAS_NEWLIB ON CACHE BOOL "True if toolchain supports newlib")
+# Until we got that fix, should be OFF
+# https://github.com/ARM-software/LLVM-embedded-toolchain-for-Arm/issues/393
+set(TOOLCHAIN_HAS_NEWLIB OFF CACHE BOOL "True if toolchain supports newlib")
+set(TOOLCHAIN_HAS_PICOLIBC ON CACHE BOOL "True if toolchain supports picolibc")

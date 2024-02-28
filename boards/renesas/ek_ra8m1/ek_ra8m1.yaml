@@ -1,0 +1,11 @@
+identifier: ek_ra8m1
+name: Renesas EK-RA8M1
+type: mcu
+arch: arm
+toolchain:
+  - zypher
+ram: 1024
+flash: 2048
+supported:
+  - gpio
+
